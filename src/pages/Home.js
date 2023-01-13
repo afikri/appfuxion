@@ -4,7 +4,6 @@ import Sidebar from "../components/Sidebar";
 import { Favorite, FavoriteBorder, MoreVert, Share } from "@mui/icons-material";
 import {
   Box,
-  Avatar,
   Card,
   CardActions,
   CardContent,
