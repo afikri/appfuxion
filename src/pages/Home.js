@@ -25,11 +25,7 @@ const Home = () => {
         <Box flex={4} p={{ xs: 0, md: 2 }}>
           <Card sx={{ margin: 5 }}>
             <CardHeader
-              avatar={
-                <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-                  R
-                </Avatar>
-              }
+             
               action={
                 <IconButton aria-label="settings">
                   <MoreVert />
