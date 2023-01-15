@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import {
-  Box,
-  Card,
-  CardMedia,
-  Stack,
-} from "@mui/material";
+import Search from "../components/Search";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { Box, Card, Stack } from "@mui/material";
+const libraries = ["places"];
+
+const mapContainerStyle = {
+  height: "70vh",
+  width: "80vw",
+};
+
+const options = {
+  disableDefaultUI: true,
+  zoomControl: true,
+};
+
+const center = {
+  lat: -6.1754,
+  lng: 106.8272,
+};
 
 const Home = () => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
+
+  const mapRef = useRef();
+
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
+
+  if (loadError) return "Error";
+  if (!isLoaded) return "Loading...";
+
   return (
     <Box bgcolor={"background.default"}>
       <Navbar />
@@ -16,12 +43,14 @@ const Home = () => {
         <Sidebar />
         <Box flex={4} p={{ xs: 0, md: 2 }}>
           <Card>
-            <CardMedia
-              component="img"
-              height="20%"
-              image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Paella dish"
-            />
+            <GoogleMap
+              id="map"
+              mapContainerStyle={mapContainerStyle}
+              zoom={15}
+              center={center}
+              options={options}
+              onLoad={onMapLoad}
+            ></GoogleMap>
           </Card>
         </Box>
       </Stack>

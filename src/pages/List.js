@@ -9,7 +9,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   Checkbox,
   IconButton,
   Stack,
