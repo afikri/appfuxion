@@ -1,7 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import Search from "../components/Search";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import { Box, Card, Stack } from "@mui/material";
 const libraries = ["places"];
