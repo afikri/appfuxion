@@ -1,6 +1,6 @@
 # Google Map Autocomplete with React
 ### To do list
-✔️ Layout with the use of Material UI
+✔️ Layout with the use of Material UI `<br>`
 ✔️ Autocomplete, but still not displayed properly
 ✔️ Using react google maps libraries
 ❌ Saving the result using react-redux
